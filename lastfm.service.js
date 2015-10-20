@@ -11,7 +11,17 @@ packageApp.service('LastFMService', ['ApiService', function(ApiService) {
 			user: 'Skarmody21',
 			format: 'json'
 		}
-
+		return ApiService.requestApi('get', urlService, requestParams);
+	}
+	
+	this.getCount = function(){
+		var requestParams = {
+			method: 'user.getweeklytrackchart',
+			api_key: 'cee5d274646c238f4bb7aee4117727f6',
+			limit: 30,
+			user: 'Skarmody21',
+			format: 'json'
+		}
 		return ApiService.requestApi('get', urlService, requestParams);
 	}
 

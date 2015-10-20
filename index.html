@@ -5,7 +5,7 @@
     <title>Recent Tracks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body ng-controller="MusicWorldController" ng-init="loadCtrl()">
+<body ng-controller="MusicWorldController" ng-init="init()">
 
 	<h1>Recent tracks </h1>
 	 <div class="container" >
@@ -43,7 +43,7 @@
                 <a class="thumbnail" style="display: block;">
                     <div class="media">
                         <div >
-                            <b>{{artist.name}}:</b> {{artist.playcount | number}} plays
+                            <b> {{artist.name}} - {{artist.artist['#text']}} :</b> {{artist.playcount | number}} plays
                         </div>
                     </div>
                 </a>

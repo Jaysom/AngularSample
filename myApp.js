@@ -14,6 +14,17 @@ packageApp.controller('MusicWorldController', ['$scope', 'LastFMService', functi
 			.success(_handlerSongsSuccess)
 			.error(_handlerSongsError);	
 	}
+	
+	scope.loadCount = function(){
+		LastFMService.getCount(_handlerCountSuccess)
+		.success(_handlerCountSuccess)
+		.error();
+	}
+	
+	scope.init = function(){
+		scope.loadCtrl();
+		scope.loadCount();
+	}
 
 	function _handlerSongsSuccess(data) {
 		scope.songs = data.recenttracks.track;
@@ -23,5 +34,14 @@ packageApp.controller('MusicWorldController', ['$scope', 'LastFMService', functi
 		console.log(data || "Request failed");
 		console.log(status);
 	}
+	
+	function _handlerCountSuccess(data) {
+		scope.artists = data.weeklytrackchart.track;
+	}	
 
+	function _handlerCountError(data, status) {
+		console.log(data || "Request failed");
+		console.log(status);
+	}
+	
 }]);
