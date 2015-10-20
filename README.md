@@ -1,0 +1,2 @@
+# AngularSample
+Lastfm API + AngularJS
