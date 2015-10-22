@@ -36,7 +36,7 @@ packageApp.controller('MusicWorldController', ['$scope', 'LastFMService', functi
 	}
 	
 	function _handlerCountSuccess(data) {
-		scope.artists = data.weeklytrackchart.track;
+		scope.artists = data.weeklytrackchart.track.slice(0,25);
 	}	
 
 	function _handlerCountError(data, status) {
