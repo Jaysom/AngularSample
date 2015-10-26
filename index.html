@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="lastfm-app">
+
 <head>
-    <meta charset="utf-8">
-    <title>Recent Tracks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Recent Tracks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body ng-controller="MusicWorldController" ng-init="init()">
 
-	<h1>Recent tracks </h1>
-	 <div class="container" >
-        <ul class="thumbnails">
-            <li class="span4" ng-repeat="song in songs">
-				<div class="media">
-					<div class="media-body">
-						<strong>{{song.artist['#text']}}</strong> - {{song.name}}<br />
-					</div>
-				</div>
-            </li>
-        </ul>
-    </div>
-    <div class="container">
-        <ul style="list-style-type: none;" class="thumbnails">
-            <li style="display: inline-block; padding: 5px; width:90px; height:140px;" class="span4" ng-repeat="song in songs">
-                <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
-                    <div class="media">
-                        <div class="pull-left" href="#">
-                            <img style="text-align: center;"class="media-object" src="{{song.image[1]['#text']}}">
-                        </div>
-                        <div class="media-body">
-                            
-                            <strong>{{song.name}}<br /></strong>
-							{{song.artist['#text']}}<br />
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-	<div class="container">
-        <ul style="list-style-type: none;" class="thumbnails">
-            <li class="span4" ng-repeat="artist in artists">
-                <a class="thumbnail" style="display: block;">
-                    <div class="media">
-                        <div >
-                            <b> {{artist.name}} - {{artist.artist['#text']}} :</b> {{artist.playcount | number}} plays
-                        </div>
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
-    <script src="myApp.js"></script>
-    <script src="apiService.js"></script>
-	<script src="lastfm.service.js"></script>
+  <h1>Recent tracks </h1>
+  <div class="container">
+    <ul class="thumbnails">
+      <li class="span4" ng-repeat="song in songs">
+        <div class="media">
+          <div class="media-body">
+            <strong>{{song.artist['#text']}}</strong> - {{song.name}}
+            <br />
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <ul style="list-style-type: none;" class="thumbnails">
+      <li style="display: inline-block; padding: 5px; width:90px; height:140px;" class="span4" ng-repeat="song in songs">
+        <a class="thumbnail" href="{{song.url}}" title="{{song.artist['#text']}} - {{song.name}}" style="display: block;">
+          <div class="media">
+            <div class="pull-left" href="#">
+              <img style="text-align: center;" class="media-object" ng-src="{{song.image[1]['#text']}}">
+            </div>
+            <div class="media-body">
+
+              <strong>{{song.name}}
+                <br />
+              </strong>
+              {{song.artist['#text']}}
+              <br />
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <ul style="list-style-type: none;" class="thumbnails">
+      <li class="span4" ng-repeat="artist in artists">
+        <a class="thumbnail" style="display: block;">
+          <div class="media">
+            <div>
+              <b> {{artist.name}} - {{artist.artist['#text']}} :</b> {{artist.playcount | number}} plays
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+  <script src="myApp.js"></script>
+  <script src="apiService.js"></script>
+  <script src="lastfm.service.js"></script>
 </body>
+
 </html>
